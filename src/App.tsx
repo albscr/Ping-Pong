@@ -3,6 +3,7 @@ import { Home } from "./Pages/Home";
 import { Tracker } from "./Pages/Tracker";
 import { Leaderboard } from "./Pages/LeaderBoard";
 function App() {
+  
   return (
     <BrowserRouter>
       <Routes>

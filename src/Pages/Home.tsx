@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../Components/Layout";
 import useLocalStorage from "../Hooks/useLocalStorage";
-import { PlayerData, PlayersData } from "../Interfaces/types";
-
+import { PlayersData } from "../Interfaces/types";
+import { FormEvent } from "react";
 
 function Home() {
-  const [playersData, setPlayersData] = useLocalStorage<PlayersData & PlayerData>(
+  const [playersData, setPlayersData] = useLocalStorage<PlayersData | null>(
     "playersData",
-    {} as unknown as PlayersData & PlayerData
+    null
   );
   const navigate = useNavigate();
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event : FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     navigate("/tracker");
   };
@@ -41,7 +41,7 @@ function Home() {
               value={playersData?.player1?.name || ""}
               onChange={(e) =>
                 setPlayersData({
-                  ...playersData,                  
+                  ...playersData,
                   player1: {
                     id: 0,
                     name: e.target.value,
@@ -72,7 +72,7 @@ function Home() {
               value={playersData?.player2?.name || ""}
               onChange={(e) =>
                 setPlayersData({
-                  ...playersData,                  
+                  ...playersData,
                   player2: {
                     id: 1,
                     name: e.target.value,
@@ -102,8 +102,10 @@ function Home() {
           >
             Play Game
           </button>
+          <Link to={"/leaderboard"}>view leaderboard</Link>
         </form>
       </section>
+      
     </Layout>
   );
 }
