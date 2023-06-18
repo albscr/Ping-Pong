@@ -17,7 +17,7 @@ function Tracker() {
   );
 
   const handleAddWinPlayer1 = () => {
-    if (playersData) {
+    if (playersData && playersData.player1) {
       const updatedPlayerData = {
         ...playersData,
         player1: {
@@ -31,7 +31,7 @@ function Tracker() {
   };
 
   const handleAddWinPlayer2 = () => {
-    if (playersData) {
+    if (playersData && playersData.player2) {
       const updatedPlayerData = {
         ...playersData,
         player2: {
