@@ -11,7 +11,7 @@ function Home() {
   );
   const navigate = useNavigate();
 
-  const handleSubmit = (event : FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     navigate("/tracker");
   };
@@ -100,12 +100,21 @@ function Home() {
                 : "bg-gray-blue cursor-not-allowed"
             }`}
           >
-            Play Game
+            {playersData?.player1?.name && playersData?.player2?.name
+              ? "Play Game"
+              : "Enter players names"}
           </button>
-          <Link to={"/leaderboard"}>view leaderboard</Link>
+
+          <div className="flex justify-center mt-3">
+            <Link
+              to={"/leaderboard"}
+              className=" text-gray-blue underline hover:text-medium-blue transition-all ease-in"
+            >
+              view leaderboard
+            </Link>
+          </div>
         </form>
       </section>
-      
     </Layout>
   );
 }

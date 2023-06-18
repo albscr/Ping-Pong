@@ -55,7 +55,7 @@ function Leaderboard() {
   };
 
   if (savedGame.length > 0) {
-    let winners = savedGame.map((game: PlayersData) => {
+     winners = savedGame.map((game: PlayersData) => {
       if (game.player1 && game.player2) {
         if (game.player1.score > game.player2.score) {
           winner = game.player1.name;

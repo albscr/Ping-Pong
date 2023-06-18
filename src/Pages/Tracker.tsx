@@ -89,13 +89,17 @@ function Tracker() {
           <p className="flex flex-col items-center text-dark-gray">
             Current winner:{" "}
             <span className="text-medium-blue text-lg">
-              {playersData?.player1?.score &&
-                playersData?.player2?.score &&
-                (playersData?.player1?.score > playersData?.player2?.score
+              {playersData?.player1?.score !== undefined &&
+              playersData?.player2?.score !== undefined
+                ? playersData?.player1?.score > playersData?.player2?.score
                   ? `${playersData?.player1?.name} ${playersData?.player1?.score} points`
                   : playersData?.player1?.score < playersData?.player2?.score
                   ? `${playersData?.player2?.name} ${playersData?.player2?.score} points`
-                  : "Tie  - Must break the tie to win")}
+                  : playersData?.player1?.score === 0 &&
+                    playersData?.player2?.score === 0
+                  ? "No winner yet"
+                  : "Tie - Must break the tie to win"
+                : "No winner yet"}
             </span>
           </p>
         </div>

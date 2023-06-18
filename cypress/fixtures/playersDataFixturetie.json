@@ -1,0 +1,11 @@
+{
+    "player1": {
+      "name": "John Doe",
+      "score": 5
+    },
+    "player2": {
+      "name": "Jane Smith",
+      "score": 5
+    }
+  }
+  

@@ -10,13 +10,16 @@ const Button: React.FC<ButtonProps> = ({ onClick }) => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+  
+    const currentTarget = e.currentTarget;
+  
     setIsAnimating(true);
-    e.currentTarget.classList.add('animate');
+    currentTarget.classList.add('animate');
     setTimeout(() => {
       setIsAnimating(false);
-      e.currentTarget.classList.remove('animate');
+      currentTarget.classList.remove('animate');
     }, 750);
-    
+  
     if (onClick) {
       onClick();
     }
