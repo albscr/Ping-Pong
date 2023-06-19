@@ -57,10 +57,13 @@ function Tracker() {
     };
 
     const savedGamesString = localStorage.getItem("savedGames");
+    console.log(savedGamesString);
+    
     const savedGames =
       savedGamesString !== null ? JSON.parse(savedGamesString) : [];
     savedGames.push(gameData);
     localStorage.setItem("savedGames", JSON.stringify(savedGames));
+    console.log(savedGames);
   };
   const handleSaveGame = () => {
     saveGameToLocalStorage();
