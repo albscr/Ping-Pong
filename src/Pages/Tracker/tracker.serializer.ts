@@ -5,18 +5,24 @@ export const TrackerSerealizer = ({
 }: {
   playersData: PlayersData | null;
 }) => {
+  let winnerName = "No winner yet";
+  let scoreDifference = 0;
+
+  if (
+    playersData?.player1?.score !== undefined &&
+    playersData?.player2?.score !== undefined
+  ) {
+    scoreDifference = playersData.player1.score - playersData.player2.score;
+
+    if (scoreDifference > 0) {
+      winnerName = playersData.player1.name;
+    } else if (scoreDifference < 0) {
+      winnerName = playersData.player2.name;
+      scoreDifference *= -1; // Convierte la diferencia a positivo
+    }
+  }
+
   return {
-    pointsCopy:
-      playersData?.player1?.score !== undefined &&
-      playersData?.player2?.score !== undefined
-        ? playersData?.player1?.score > playersData?.player2?.score
-          ? `${playersData?.player1?.name} ${playersData?.player1?.score} points`
-          : playersData?.player1?.score < playersData?.player2?.score
-          ? `${playersData?.player2?.name} ${playersData?.player2?.score} points`
-          : playersData?.player1?.score === 0 &&
-            playersData?.player2?.score === 0
-          ? "No winner yet"
-          : "Tie - Must break the tie to win"
-        : "No winner yet",
+    pointsCopy: `${winnerName} for ${scoreDifference} points`,
   };
 };
