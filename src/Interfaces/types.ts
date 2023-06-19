@@ -9,3 +9,7 @@ export interface PlayersData {
   player2?: PlayerData;
 }
 
+export interface Winner {
+  winner: string;
+  maxScore: number;
+}

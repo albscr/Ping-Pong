@@ -1,14 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./Pages/Home";
-import { Tracker } from "./Pages/Tracker";
-import { Leaderboard } from "./Pages/LeaderBoard";
+import HomeController from "./Pages/Home/HomeController";
+import TrackerController from "./Pages/Tracker/TrackerController";
+import { Leaderboard } from "./Pages/Leaderboard";
+
 function App() {
   
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route  path="/tracker" element={<Tracker />} />
+        <Route path="/" element={<HomeController />} />
+        <Route  path="/tracker" element={<TrackerController />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
 
       </Routes>
